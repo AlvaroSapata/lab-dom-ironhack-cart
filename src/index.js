@@ -72,7 +72,7 @@ function removeProduct(event) {
   //... your code goes here
   // tenemos que buscar el nodo completo del padre button < td < tr --> 2 parentNode arriba
   event.target.parentNode.parentNode.remove();
-  
+
   // para actualizar el codigo volvemos a llamar a la funcion
   calculateAll();
 }
@@ -81,18 +81,22 @@ function removeProduct(event) {
 
 function createProduct() {
   //... your code goes here
-  console.log("Test")
+  console.log("Test");
 
   // buscar los valores que vamos a utilizar
   //! css selector by type x [ type = y ]
-  const nameInput = document.querySelector(".create-product input[type = text]")
-  const priceInput = document.querySelector(".create-product input[type = number]")
-  console.log(nameInput.value, priceInput.value)
+  const nameInput = document.querySelector(
+    ".create-product input[type = text]"
+  );
+  const priceInput = document.querySelector(
+    ".create-product input[type = number]"
+  );
+  console.log(nameInput.value, priceInput.value);
 
   // crear el elemento html en el tbody
   //! podemos ir creando cada elemento de uno en uno, o todos a la vez con el innerHtml
   // buscamos donde crearlo
-  const table = document.querySelector("tbody")
+  const table = document.querySelector("tbody");
 
   // creamos el html y interpolamos los valores de los campos nameInput y priceInput
   const elementoAgregar = `        
@@ -108,10 +112,10 @@ function createProduct() {
     <td class="action">
       <button class="btn btn-remove">Remove</button>
     </td>
-</tr> `
+</tr> `;
 
   // agregamos al html el nuevo codigo
-  table.innerHTML+= elementoAgregar;
+  table.innerHTML += elementoAgregar;
 
   //! tenemos que volver a llamar a la funcionalidad de los botones de remover para que se aplique cada vez que se crea uno nuevo
   const removeButtons = document.querySelectorAll(".btn-remove");
@@ -124,7 +128,6 @@ window.addEventListener("load", () => {
   const calculatePricesBtn = document.getElementById("calculate");
   calculatePricesBtn.addEventListener("click", calculateAll);
 
-
   //... your code goes here
   // varios botones con la misma funcionalidad
   const removeButtons = document.querySelectorAll(".btn-remove");
@@ -132,6 +135,6 @@ window.addEventListener("load", () => {
     button.addEventListener("click", removeProduct);
   });
 
-  const createBtn = document.querySelector(".create-product .btn")
-  createBtn.addEventListener("click", createProduct)
+  const createBtn = document.querySelector(".create-product .btn");
+  createBtn.addEventListener("click", createProduct);
 });
